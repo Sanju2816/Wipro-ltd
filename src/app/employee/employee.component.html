@@ -1,0 +1,47 @@
+<h1>Two Way Data Binding</h1>
+<p>Two-way data binding refers to sharing data between a component class and its template. 
+    If you change data in one place, it will automatically reflate at the other end. For example, 
+    if you change the value of the input box, then it will also update the value of the attached property 
+    in a component class.</p>
+<hr>
+<p>Two-way data binding refers to sharing data between a component class and its template. 
+    If you change data in one place, it will automatically reflate at the other end. For example, 
+    if you change the value of the input box, 
+    then it will also update the value of the attached property in a component class.</p>
+<hr>
+<h2>Two Way Data-binding Example</h2>
+<h2>Template Driven Forms</h2>
+<p>Enter your Name</p>
+<input type="text" name="fname" [(ngModel)]="a">
+<p>Your full name is: {{a}}</p>
+<button (click)="clearValue()">Clear Name</button>
+<hr>
+<div class="container">
+    <h1>Employee Form-2 way Data Binding</h1>
+    <form (ngSubmit)=onSubmit() ngNativeValidate>  
+        <div>  
+          <label for="name">Name</label>  
+          <input type="text"  id="name" required  [(ngModel)]="emp.name" name="nme">  
+        </div>  
+        <div>  
+          <label for="dept">Department</label>  
+          <input type="text"  id="dept" required [(ngModel)]="emp.dept" name="det">  
+        </div> 
+        
+        <div>  
+          <label for="power">Employee Power</label>  
+          <select id="power" required  [(ngModel)]="emp.power" name="poer"> 
+            <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>  
+          </select>  
+        </div>  
+  
+        <input type="submit" value="Submit">
+      </form>  
+  
+      <div *ngIf="submitted">
+  <div><span>Name : </span>{{emp.name | uppercase}}</div>
+  <div><span>Department: </span>{{emp.dept}}</div>
+  <div><span>Power :</span>{{emp.power}}</div>
+  </div>
+</div>
+
